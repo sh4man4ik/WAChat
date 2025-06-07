@@ -1,0 +1,189 @@
+:root {
+    --color-navandinput: #E8DFCA;
+
+    --color-inputsend: #E2D9C5;
+    --color-inputsend-hover: #d8cfbb;
+
+    --color-background: #F5EFE6;
+
+    --color-othermessage: #AEBDCA;
+    --color-mymessage: #7895B2;
+
+    --color-scrollbar: #b0b0b0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+    color: black;
+
+    background-color: var(--color-background);
+}
+
+.navbar {
+    background-color: var(--color-navandinput);
+}
+
+#navItemWAChat {
+    font-size: clamp(24px, 5vw, 36px);
+}
+
+#navItemGitHub {
+    text-decoration: none;
+    font-size: clamp(20px, 5vw, 28px);
+}
+#navItemGitHub:hover {
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    border: 0;
+    color: black;
+    margin: 0px;
+    padding: 0px 5px 0px 0px;
+    font-size: clamp(24px, 5vw, 32px);
+}
+
+#mainChat {
+    margin: 0px;
+    max-width: 550px;
+    width: 80%;
+    justify-self: center;
+}
+
+#mainMessages {
+    width: 100%;
+    overflow: auto;
+    padding: 11px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#mainMessages::before {
+    content: "";
+    flex-grow: 1;
+}
+
+#mainMessages::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--color-background);
+}
+
+#mainMessages::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--color-scrollbar);
+}
+
+#mainMessages::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: var(--color-background);
+}
+
+.myMessage, .otherMessage {
+    padding: 10px 15px;
+    max-width: 300px;
+    width: 90%;
+    text-align: left;
+    border-radius: 10px;
+    font-size: clamp(12px, 4vw, 18px);
+    word-break: break-word;
+}
+
+.myMessage {
+    background-color: var(--color-mymessage);
+    align-self: flex-end;
+    border-bottom-right-radius: 0px;
+}
+
+.otherMessage {
+    background-color: var(--color-othermessage);
+    align-self: flex-start;
+    border-bottom-left-radius: 0px;
+}
+
+#mainInputContainer {
+    background-color: var(--color-navandinput);
+    border: 0;
+    font-size: clamp(12px, 4vw, 18px);
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    position: fixed;
+    bottom: 0;
+    max-width: 550px;
+    width: 80%;
+
+    display: flex;
+}
+
+#mainInputMessage {
+    background-color: var(--color-navandinput);
+    border: 0;
+    font-size: clamp(12px, 4vw, 18px);
+    border-top-left-radius: 10px;
+    outline: none;
+}
+
+#mainInputSend {
+    background-color: var(--color-inputsend);
+    border: 0;
+    font-size: clamp(12px, 5vw, 18px);
+    border-top-right-radius: 10px;
+
+    min-width: 30px;
+
+    text-align: center;
+    padding-top: 5px;
+}
+
+/*Mobile*/
+@media (max-width: 1023px) {
+    .myMessage, .otherMessage {
+        margin-bottom: 10px;
+    }
+
+    #mainInputMessage {
+        padding: 10px 10px 5px 20px;
+        width: 85%;
+    }
+
+    #mainInputSend {
+        width: 15%;
+    }
+
+    #mainMessages::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+/*PC*/
+@media (min-width: 992px) {
+    .myMessage, .otherMessage {
+        margin-bottom: 15px;
+    }
+
+    #mainInputMessage {
+        padding: 15px 15px 10px 25px;
+        width: 90%;
+    }
+
+    #mainInputSend {
+        width: 10%;
+    }
+
+    #mainInputSend:hover {
+        background-color: var(--color-inputsend-hover);
+    }
+
+    #mainMessages::-webkit-scrollbar {
+        width: 10px;
+    }
+}
